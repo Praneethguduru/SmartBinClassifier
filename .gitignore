@@ -223,3 +223,7 @@ __marimo__/
 ## Ignoring DB File / Folder
 metadata.db
 data/
+
+# OS and notebook CSV data
+.DS_Store
+notebooks/*.csv
