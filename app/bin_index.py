@@ -1,7 +1,11 @@
 from pathlib import Path
 import pandas as pd
 
-DATA = Path(__file__).resolve().parent.parent / "data" / "prepared"
+ROOT = Path(__file__).resolve().parent.parent
+FULL = ROOT / "data" / "prepared"
+SAMPLE = ROOT / "sample"
+# On your Mac the full data is used; on the cloud only the small sample exists
+DATA = FULL if (FULL / "train" / "labels.csv").exists() else SAMPLE
 
 def load_pool():
     """Return {asin: DataFrame of bins with its labels} from train + validation."""

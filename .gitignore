@@ -227,3 +227,5 @@ data/
 # OS and notebook CSV data
 .DS_Store
 notebooks/*.csv
+
+sample/
