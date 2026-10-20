@@ -66,7 +66,7 @@ if mode == "Normal":
     else:
         bin_id = None
         if ok_order:
-            st.warning("No train/validation bin matches this order. Try fewer items or tick 'Choose a different bin'.")
+            st.warning("No demo bin holds this order (3 or more units of one product is rare). Lower the quantity or tick 'Choose a different bin'.")
 
     image = None
     if bin_id is not None:
