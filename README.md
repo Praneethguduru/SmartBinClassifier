@@ -43,14 +43,6 @@ To re-run the notebooks you need the dataset. Download it (see the Data section)
 notebooks in this order: `metadata.ipynb`, `02_baseline.ipynb`, `03_cnn.ipynb`,
 `04_evaluation.ipynb`.
 
-## Data
-
-I used the Amazon Bin Image Dataset (536,434 bin photos, resized to 224x224) from Kaggle, with
-its metadata database. The original data comes from Amazon Fulfillment Technologies, and the
-licence is CC BY-NC-SA 3.0 US, which means non-commercial use only. I used it only for this
-assignment. The full citation is at the bottom.
-
-How I built my working data:
 
 - **2,000 bins.** I kept only bins with 1 to 5 units in total, and where the per-product
   quantities add up to that total. Empty and inconsistent records were dropped.
@@ -193,12 +185,21 @@ work, wrote most of the notebook cells, the app code and the evaluation code, an
 the results. I ran every cell myself and checked the output against what I expected, so I can
 explain each step.
 
-Two times the AI was wrong and I caught it:
+Places where the AI was wrong or overstated something, and how I found out:
 
-- An early version of the metadata cell turned every product id into its own column. It ran for
-  over 14 minutes and produced a broken CSV. I noticed it was far too slow and that the columns
-  made no sense, stopped it, and replaced it with a simple table with one row per product per
-  bin.
 - The script that builds the demo sample rewrote the label file but never deleted photos from
   the previous run. When I counted the files I got 285 photos for 150 labels. I deleted the
   folder and rebuilt it, and the counts matched.
+- The AI first suggested a catalogue of about 20 products. When I counted the real numbers, the
+  20th product appeared in only 156 bins, which is too few once the data is split, so I used
+  15 products instead.
+- The AI said a few bins would hold two catalogue products. When I ran the count, only 6 of
+  2,000 did, so I wrote that limit into the README and the slides.
+
+## Citation
+
+Amazon Bin Image Dataset. Amazon Fulfillment Technologies. Over 500,000 bin images with
+metadata from an operating Amazon Fulfillment Center. I used the Kaggle copy resized to 224x224
+(536,434 images with a metadata database), accessed on 19 October 2026. Original source:
+https://registry.opendata.aws/amazon-bin-imagery. Licence: Creative Commons
+Attribution-NonCommercial-ShareAlike 3.0 US.

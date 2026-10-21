@@ -228,3 +228,4 @@ data/
 .DS_Store
 notebooks/*.csv
 
+.claude/
