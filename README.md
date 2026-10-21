@@ -190,9 +190,7 @@ Places where the AI was wrong or overstated something, and how I found out:
 - The script that builds the demo sample rewrote the label file but never deleted photos from
   the previous run. When I counted the files I got 285 photos for 150 labels. I deleted the
   folder and rebuilt it, and the counts matched.
-- The AI first suggested a catalogue of about 20 products. When I counted the real numbers, the
-  20th product appeared in only 156 bins, which is too few once the data is split, so I used
-  15 products instead.
+- It first suggested about 20 products. The real counts showed only 15      products reach 100 bins in my 2,000, and the 16th has just 4, so I used 15.
 - The AI said a few bins would hold two catalogue products. When I ran the count, only 6 of
   2,000 did, so I wrote that limit into the README and the slides.
 
